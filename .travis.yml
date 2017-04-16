@@ -2,6 +2,18 @@ language: android
 jdk:
  - oraclejdk8
 
+android:
+  components:
+    - tools
+    - build-tools-25.0.2
+    - platform-tools
+    - android-22
+    - android-25
+    - sys-img-armeabi-v7a-android-22
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - extra-google-google_play_services
+
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -18,14 +30,3 @@ env:
  - ANDROID_BUILD_TOOLS=25.0.2
  - ADB_INSTALL_TIMEOUT=5 # minutes
 
-android:
-  components:
-    - platform-tools
-    - tools
-    - build-tools-25.0.0
-    - android-22
-    - android-25
-    - sys-img-armeabi-v7a-android-22
-    - extra-android-m2repository
-    - extra-google-m2repository
-    - extra-google-google_play_services
