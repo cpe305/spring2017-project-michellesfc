@@ -30,3 +30,7 @@ env:
  - ANDROID_BUILD_TOOLS=25.0.2
  - ADB_INSTALL_TIMEOUT=5 # minutes
 
+licenses:
+  - 'android-sdk-preview-license-.+'
+  - 'android-sdk-license-.+'
+  - 'google-gdk-license-.+'
