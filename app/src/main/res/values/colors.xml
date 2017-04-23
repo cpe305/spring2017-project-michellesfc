@@ -3,4 +3,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+
+    <color name="background">#FFFFFF</color>
+    <color name="statusBar">#FFFFFF</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="tabUnderline">#000000</color>
+    <color name="primaryColor">#C1F7F7</color>
+    <color name="primary_material_light">#ffffff</color>
+    <color name="background_material_light">#ffffff</color>
+    <color name="primary_text_material_dark">#000000</color>
+    <color name="secondary_text_material_light">#000000</color>
+
 </resources>
