@@ -11,6 +11,7 @@ import com.example.michellegu.avoid.view.IBaseView;
 
 /**
  * Created by michellegu on 4/23/17.
+ * This class will be extended by all activities that require a toolbar menu.
  */
 
 public class BaseActivity extends AppCompatActivity implements IBaseView {
@@ -18,7 +19,6 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     public void initToolbar(int toolbarID) {
@@ -29,9 +29,7 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         return true;
     }
 
@@ -42,7 +40,6 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
                 System.out.println("settings clicked");
                 Intent nextActivity = new Intent(this, ListActivity.class);
                 startActivity(nextActivity);
-                // User chose the "Settings" item, show the app settings UI...
                 return true;
             case R.id.app_bar_search:
                 Intent searchActivity = new Intent(this, SearchActivity.class);
@@ -50,7 +47,7 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
                 System.out.println("search clicked");
                 return true;
             default:
-                System.out.println(" clicked");
+                System.out.println("unable to determine user's action");
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);

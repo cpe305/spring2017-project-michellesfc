@@ -27,8 +27,10 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //attaching presenter
         searchPresenter = new SearchPresenter(this);
 
+        //setting up view components
         initToolbar(R.id.my_toolbar);
         mPlaceDetailsText = (TextView) findViewById(R.id.placeTextView);
 
