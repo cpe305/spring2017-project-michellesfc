@@ -1,6 +1,9 @@
 package com.example.michellegu.avoid.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by michellegu on 4/23/17.
@@ -13,6 +16,15 @@ public class Place {
     private String address;
     private int currentRating;
     private ArrayList<Post> posts;
+
+    public Place() {}
+
+    public Place(String placeID, String name, String address, int currentRating) {
+        this.placeID = placeID;
+        this.name = name;
+        this.address = address;
+        this.currentRating = currentRating;
+    }
 
     public String getPlaceID() {
         return placeID;
@@ -53,4 +65,5 @@ public class Place {
     public void removePost(Post p) {
         posts.remove(p);
     }
+
 }

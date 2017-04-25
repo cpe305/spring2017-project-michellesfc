@@ -5,16 +5,10 @@
     <![CDATA[
         <b>%1$s</b>
         <br/>
-        <i>Place Id: %2$s</i>
+        Address: %2$s
         <br/>
-        Address: %3$s
-        <br/>
-        Phone: %4$s
-        <br/>
-        Website: %5$s
     ]]>
     </string>
-    <string name="title_activity_main3">Main3Activity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
 </resources>

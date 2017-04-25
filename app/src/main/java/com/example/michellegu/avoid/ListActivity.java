@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * This activity will keep track of the places the user favorites.
+ */
 public class ListActivity extends BaseActivity {
 
     @Override
@@ -11,6 +14,7 @@ public class ListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         initToolbar(R.id.my_toolbar);
+        //TODO: this activity will keep track of the places the user favorited
         //TextView textView = (TextView)findViewById(R.id.secondTextView);
     }
 }

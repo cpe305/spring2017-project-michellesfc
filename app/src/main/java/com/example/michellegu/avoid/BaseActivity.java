@@ -1,5 +1,6 @@
 package com.example.michellegu.avoid;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,11 +19,12 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_search);
     }
 
     public void initToolbar(int toolbarID) {
         Toolbar myToolbar = (Toolbar) findViewById(toolbarID);
+        myToolbar.setTitle("");
         setSupportActionBar(myToolbar);
     }
 

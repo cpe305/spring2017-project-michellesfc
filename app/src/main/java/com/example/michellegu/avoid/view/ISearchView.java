@@ -7,5 +7,4 @@ import com.google.android.gms.location.places.Place;
  */
 
 public interface ISearchView {
-    void showPlaceDetails(Place place);
 }
