@@ -1,7 +1,8 @@
-package com.example.michellegu.avoid;
+package com.example.michellegu.avoid.view.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.michellegu.avoid.R;
 
 /**
  * This activity is displayed when the app first starts up.

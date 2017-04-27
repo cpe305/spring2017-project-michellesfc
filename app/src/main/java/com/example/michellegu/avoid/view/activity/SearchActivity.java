@@ -1,4 +1,4 @@
-package com.example.michellegu.avoid;
+package com.example.michellegu.avoid.view.activity;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -10,6 +10,8 @@ import android.text.Html;
 import android.text.Spanned;
 import android.widget.TextView;
 
+import com.example.michellegu.avoid.R;
+import com.example.michellegu.avoid.view.SearchPagerAdapter;
 import com.example.michellegu.avoid.presenter.SearchPresenter;
 import com.example.michellegu.avoid.view.ISearchView;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -17,9 +19,6 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class SearchActivity extends BaseActivity implements ISearchView {
     private SearchPresenter searchPresenter;
@@ -73,7 +72,7 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(this, data);
-                System.out.println("INNNN");
+
                 showPlaceDetails(place);
                 searchPresenter.getCurrentRating(place.getId());
             }
@@ -90,7 +89,7 @@ public class SearchActivity extends BaseActivity implements ISearchView {
     }
 
     public void showPlaceDetails(Place place) {
-        System.out.println("Place id is:      " + place.getId());
+        System.out.println("PlaceData id is:      " + place.getId());
         mPlaceDetailsText.setText(formatPlaceDetails(getResources(), place.getName(), place.getAddress()));
     }
 

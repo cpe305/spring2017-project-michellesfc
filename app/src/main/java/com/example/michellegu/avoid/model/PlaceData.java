@@ -1,5 +1,8 @@
 package com.example.michellegu.avoid.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +12,7 @@ import java.util.Objects;
  * Created by michellegu on 4/23/17.
  */
 
-public class Place {
+public class PlaceData {
 
     private String placeID;
     private String name;
@@ -17,9 +20,9 @@ public class Place {
     private int currentRating;
     private ArrayList<Post> posts;
 
-    public Place() {}
+    public PlaceData() {}
 
-    public Place(String placeID, String name, String address, int currentRating) {
+    public PlaceData(String placeID, String name, String address, int currentRating) {
         this.placeID = placeID;
         this.name = name;
         this.address = address;

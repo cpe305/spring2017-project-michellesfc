@@ -1,8 +1,8 @@
-package com.example.michellegu.avoid;
+package com.example.michellegu.avoid.view.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+
+import com.example.michellegu.avoid.R;
 
 /**
  * This activity will keep track of the places the user favorites.

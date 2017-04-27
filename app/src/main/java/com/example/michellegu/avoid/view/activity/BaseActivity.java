@@ -1,6 +1,5 @@
-package com.example.michellegu.avoid;
+package com.example.michellegu.avoid.view.activity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.michellegu.avoid.R;
 import com.example.michellegu.avoid.view.IBaseView;
 
 /**

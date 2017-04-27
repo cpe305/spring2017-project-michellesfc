@@ -1,11 +1,7 @@
 package com.example.michellegu.avoid.presenter;
 
-import com.example.michellegu.avoid.model.Place;
+import com.example.michellegu.avoid.model.PlaceData;
 import com.example.michellegu.avoid.view.ISearchView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by michellegu on 4/23/17.
@@ -19,7 +15,7 @@ public class SearchPresenter {
     }
 
     public void getCurrentRating(String placeID) {
-        System.out.println("Place id is:      " + placeID);
+        System.out.println("PlaceData id is:      " + placeID);
     }
 
 }

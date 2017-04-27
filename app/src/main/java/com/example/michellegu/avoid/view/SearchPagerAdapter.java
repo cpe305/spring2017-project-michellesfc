@@ -1,8 +1,12 @@
-package com.example.michellegu.avoid;
+package com.example.michellegu.avoid.view;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.michellegu.avoid.view.fragment.ChartFragment;
+import com.example.michellegu.avoid.view.fragment.DetailsFragment;
+import com.example.michellegu.avoid.view.fragment.PostsFragment;
 
 /**
  * Created by michellegu on 4/24/17.
@@ -25,12 +29,12 @@ public class SearchPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0: // Fragment # 0 - This will show FirstFragment
-                return DetailsFragment.newInstance(0, "Page # 1");
-            case 1: // Fragment # 0 - This will show FirstFragment different title
-                return DetailsFragment.newInstance(1, "Page # 2");
-            case 2: // Fragment # 1 - This will show SecondFragment
-                return DetailsFragment.newInstance(2, "Page # 3");
+            case 0:
+                return DetailsFragment.newInstance();
+            case 1:
+                return ChartFragment.newInstance();
+            case 2:
+                return PostsFragment.newInstance();
             default:
                 return null;
         }

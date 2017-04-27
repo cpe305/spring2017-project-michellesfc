@@ -1,4 +1,4 @@
-package com.example.michellegu.avoid;
+package com.example.michellegu.avoid.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,41 +7,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.michellegu.avoid.R;
+
 /**
  * Created by michellegu on 4/24/17.
  */
 
-public class DetailsFragment extends Fragment {
+public class PostsFragment extends Fragment {
     // Store instance variables
-    private String title;
-    private int page;
+    private String title = "Post";
+    private int page = 3;
 
     // newInstance constructor for creating fragment with arguments
-    public static DetailsFragment newInstance(int page, String title) {
-        DetailsFragment fragmentFirst = new DetailsFragment();
+    public static PostsFragment newInstance() {
+        PostsFragment fragmentThird = new PostsFragment();
         Bundle args = new Bundle();
-        args.putInt("someInt", page);
-        args.putString("someTitle", title);
-        fragmentFirst.setArguments(args);
-        return fragmentFirst;
+        fragmentThird.setArguments(args);
+        return fragmentThird;
     }
 
     // Store instance variables based on arguments passed
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        page = getArguments().getInt("someInt", 0);
-        title = getArguments().getString("someTitle");
     }
 
     // Inflate the view for the fragment based on layout XML
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_page, container, false);
-        TextView tvLabel = (TextView) view.findViewById(R.id.tvLabel);
-        tvLabel.setText(page + " -- " + title);
-        //System.out.print(tvLabel.getText());
+        View view = inflater.inflate(R.layout.fragment_posts, container, false);
+        TextView postLabel = (TextView) view.findViewById(R.id.postLabel);
+        postLabel.setText(page + " -- " + title);
+
         return view;
     }
 }
