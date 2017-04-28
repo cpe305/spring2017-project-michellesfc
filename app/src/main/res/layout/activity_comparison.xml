@@ -4,19 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.michellegu.avoid.view.activity.ListActivity">
+    tools:context="com.example.michellegu.avoid.view.activity.ComparisonActivity">
 
     <include
         android:id="@+id/my_toolbar"
         layout="@layout/toolbar"/>
 
     <TextView
-        android:id="@+id/secondTextView"
+        android:id="@+id/comparisonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World"
+        android:layout_marginTop="40dp"
+        android:text="Comparison View"
+        android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+
 </android.support.constraint.ConstraintLayout>

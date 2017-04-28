@@ -38,15 +38,17 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                System.out.println("settings clicked");
-                Intent nextActivity = new Intent(this, ListActivity.class);
-                startActivity(nextActivity);
+            case R.id.app_bar_favorites:
+                Intent favoriteActivity = new Intent(this, FavoritesActivity.class);
+                startActivity(favoriteActivity);
                 return true;
             case R.id.app_bar_search:
                 Intent searchActivity = new Intent(this, SearchActivity.class);
                 startActivity(searchActivity);
-                System.out.println("search clicked");
+                return true;
+            case R.id.app_bar_comparison:
+                Intent comparisonActivity = new Intent(this, ComparisonActivity.class);
+                startActivity(comparisonActivity);
                 return true;
             default:
                 System.out.println("unable to determine user's action");

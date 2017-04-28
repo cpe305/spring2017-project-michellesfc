@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- "Mark Favorite", should appear as action button if possible -->
+
     <item
         android:id="@+id/app_bar_search"
         android:actionViewClass="android.widget.SearchView"
@@ -9,8 +9,13 @@
         android:title="Search"
         app:showAsAction="always" />
 
-    <!-- Settings, should always be in the overflow -->
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+    <item android:id="@+id/app_bar_favorites"
+        android:icon="@drawable/ic_favorites"
+        android:title="Favorites"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/app_bar_comparison"
+        android:icon="@drawable/ic_ranking"
+        android:title="Comparison"
+        app:showAsAction="always"/>
 </menu>

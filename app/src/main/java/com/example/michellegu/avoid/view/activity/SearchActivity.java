@@ -11,7 +11,7 @@ import android.text.Spanned;
 import android.widget.TextView;
 
 import com.example.michellegu.avoid.R;
-import com.example.michellegu.avoid.view.SearchPagerAdapter;
+import com.example.michellegu.avoid.view.adapter.SearchPagerAdapter;
 import com.example.michellegu.avoid.presenter.SearchPresenter;
 import com.example.michellegu.avoid.view.ISearchView;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -52,10 +52,10 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(vpPager);
 
-        createPicker();
+        createPlacePicker();
     }
 
-    private void createPicker() {
+    private void createPlacePicker() {
         try {
             Intent pickerIntent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
                     .build(this);
@@ -67,6 +67,7 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         }
     }
 
+    //handles the action of selecting a place from the place picker
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
@@ -74,7 +75,6 @@ public class SearchActivity extends BaseActivity implements ISearchView {
                 Place place = PlaceAutocomplete.getPlace(this, data);
 
                 showPlaceDetails(place);
-                searchPresenter.getCurrentRating(place.getId());
             }
             else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
@@ -89,10 +89,8 @@ public class SearchActivity extends BaseActivity implements ISearchView {
     }
 
     public void showPlaceDetails(Place place) {
-        System.out.println("PlaceData id is:      " + place.getId());
         mPlaceDetailsText.setText(formatPlaceDetails(getResources(), place.getName(), place.getAddress()));
     }
-
 
     private static Spanned formatPlaceDetails(Resources res, CharSequence name, CharSequence address) {
         return Html.fromHtml(res.getString(R.string.place_details, name, address));

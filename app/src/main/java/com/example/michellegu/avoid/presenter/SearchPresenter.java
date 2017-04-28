@@ -14,8 +14,4 @@ public class SearchPresenter {
         this.searchView = searchView;
     }
 
-    public void getCurrentRating(String placeID) {
-        System.out.println("PlaceData id is:      " + placeID);
-    }
-
 }
