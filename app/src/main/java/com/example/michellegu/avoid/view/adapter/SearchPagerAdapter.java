@@ -1,4 +1,4 @@
-package com.example.michellegu.avoid.view;
+package com.example.michellegu.avoid.view.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

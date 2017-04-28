@@ -7,10 +7,21 @@ package com.example.michellegu.avoid.model;
 public class Post {
 
     private long id;
+    private User author;
     private String message;
     private int rating;
     private int votes;
     private String timeStamp;
+
+    public Post() {
+
+    }
+
+    public Post(User author, String message, int rating) {
+        this.author = author;
+        this.message = message;
+        this.rating = rating;
+    }
 
     public long getId() {
         return id;
@@ -18,6 +29,14 @@ public class Post {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     public String getMessage() {
