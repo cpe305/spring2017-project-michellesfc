@@ -20,13 +20,17 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class SearchActivity extends BaseActivity implements ISearchView {
     private SearchPresenter searchPresenter;
     private FragmentPagerAdapter adapterViewPager;
 
     //view components
-    private TextView mPlaceDetailsText;
-    private TabLayout mTabLayout;
+    @BindView(R.id.viewpager) ViewPager viewPager;
+    @BindView(R.id.placeTextView) TextView placeDetails;
+    @BindView(R.id.tabLayout) TabLayout tabLayout;
 
 
     //for google places
@@ -36,19 +40,17 @@ public class SearchActivity extends BaseActivity implements ISearchView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        ButterKnife.bind(this);
 
         //attaching presenter
         searchPresenter = new SearchPresenter(this);
 
-        ViewPager vpPager = (ViewPager) findViewById(R.id.viewpager);
         adapterViewPager = new SearchPagerAdapter(getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
+        viewPager.setAdapter(adapterViewPager);
 
         //setting up view components
-        initToolbar(R.id.my_toolbar);
-        mPlaceDetailsText = (TextView) findViewById(R.id.placeTextView);
-        mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        mTabLayout.setupWithViewPager(vpPager);
+        initToolbar(R.id.menu_toolbar);
+        tabLayout.setupWithViewPager(viewPager);
 
         createPlacePicker();
     }
@@ -57,7 +59,7 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         try {
             Intent pickerIntent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
                     .build(this);
-            startActivityForResult(pickerIntent, 1);
+            startActivityForResult(pickerIntent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
         } catch (GooglePlayServicesRepairableException e) {
             // TODO: Handle the error.
         } catch (GooglePlayServicesNotAvailableException e) {
@@ -71,7 +73,6 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(this, data);
-
                 showPlaceDetails(place);
             }
             else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
@@ -87,7 +88,7 @@ public class SearchActivity extends BaseActivity implements ISearchView {
     }
 
     public void showPlaceDetails(Place place) {
-        mPlaceDetailsText.setText(formatPlaceDetails(getResources(), place.getName(), place.getAddress()));
+        placeDetails.setText(formatPlaceDetails(getResources(), place.getName(), place.getAddress()));
     }
 
     private static Spanned formatPlaceDetails(Resources res, CharSequence name, CharSequence address) {

@@ -12,6 +12,6 @@ public class ComparisonActivity extends BaseActivity implements IComparisonView 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comparison);
-        initToolbar(R.id.my_toolbar);
+        initToolbar(R.id.menu_toolbar);
     }
 }

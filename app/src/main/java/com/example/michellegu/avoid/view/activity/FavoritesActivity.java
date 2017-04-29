@@ -14,6 +14,6 @@ public class FavoritesActivity extends BaseActivity implements IBaseView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
-        initToolbar(R.id.my_toolbar);
+        initToolbar(R.id.menu_toolbar);
     }
 }
