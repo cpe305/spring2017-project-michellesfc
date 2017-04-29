@@ -4,8 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.michellegu.avoid.R;
+import com.example.michellegu.avoid.view.IComparisonView;
 
-public class ComparisonActivity extends BaseActivity {
+public class ComparisonActivity extends BaseActivity implements IComparisonView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
