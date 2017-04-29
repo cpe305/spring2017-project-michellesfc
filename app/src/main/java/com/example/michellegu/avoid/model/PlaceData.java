@@ -10,6 +10,9 @@ import java.util.Objects;
 
 /**
  * Created by michellegu on 4/23/17.
+ *
+ * Note: I decided to name this class PlaceData instead of the more suited name Place
+ * because Google Places API returns a Place object. This would have led to some confusion.
  */
 
 public class PlaceData {

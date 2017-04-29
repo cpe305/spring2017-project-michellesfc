@@ -26,7 +26,6 @@ public class SearchActivity extends BaseActivity implements ISearchView {
 
     //view components
     private TextView mPlaceDetailsText;
-    private TextView mCurrentRatingsText;
     private TabLayout mTabLayout;
 
 
@@ -48,7 +47,6 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         //setting up view components
         initToolbar(R.id.my_toolbar);
         mPlaceDetailsText = (TextView) findViewById(R.id.placeTextView);
-        mCurrentRatingsText = (TextView) findViewById(R.id.currentRatingTextView);
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(vpPager);
 
