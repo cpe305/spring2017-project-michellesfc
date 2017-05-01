@@ -24,7 +24,7 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
 
     public void initToolbar(int toolbarID) {
         Toolbar myToolbar = (Toolbar) findViewById(toolbarID);
-        myToolbar.setTitle("");
+        myToolbar.setTitle("AVOID");
         setSupportActionBar(myToolbar);
     }
 
