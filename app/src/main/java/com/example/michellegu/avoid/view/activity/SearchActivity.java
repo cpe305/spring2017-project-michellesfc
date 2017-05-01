@@ -1,9 +1,10 @@
 package com.example.michellegu.avoid.view.activity;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
@@ -11,6 +12,7 @@ import android.text.Spanned;
 import android.widget.TextView;
 
 import com.example.michellegu.avoid.R;
+import com.example.michellegu.avoid.model.PlaceData;
 import com.example.michellegu.avoid.view.adapter.SearchPagerAdapter;
 import com.example.michellegu.avoid.presenter.SearchPresenter;
 import com.example.michellegu.avoid.view.ISearchView;
@@ -29,7 +31,7 @@ public class SearchActivity extends BaseActivity implements ISearchView {
 
     //view components
     @BindView(R.id.viewpager) ViewPager viewPager;
-    @BindView(R.id.placeTextView) TextView placeDetails;
+    //@BindView(R.id.placeTextView) TextView placeDetails;
     @BindView(R.id.tabLayout) TabLayout tabLayout;
 
 
@@ -43,19 +45,20 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         ButterKnife.bind(this);
 
         //attaching presenter
-        searchPresenter = new SearchPresenter(this);
+        searchPresenter = new SearchPresenter();
+        searchPresenter.attachView(this);
 
-        adapterViewPager = new SearchPagerAdapter(getSupportFragmentManager());
+        adapterViewPager = new SearchPagerAdapter(getSupportFragmentManager(), searchPresenter);
         viewPager.setAdapter(adapterViewPager);
 
         //setting up view components
         initToolbar(R.id.menu_toolbar);
         tabLayout.setupWithViewPager(viewPager);
 
-        createPlacePicker();
+        initPlacePicker();
     }
 
-    private void createPlacePicker() {
+    private void initPlacePicker() {
         try {
             Intent pickerIntent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
                     .build(this);
@@ -73,7 +76,10 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(this, data);
-                showPlaceDetails(place);
+                searchPresenter.createPlaceData(place.getId());
+                System.out.println("place id:  " + place.getId());
+                //((SearchPagerAdapter)adapterViewPager).update();
+                //System.out.println("I called update");
             }
             else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
@@ -87,12 +93,30 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         }
     }
 
+    public SearchPresenter getPresenter() {
+        return searchPresenter;
+    }
+
+    public Fragment getFragment(int i) {
+        return adapterViewPager.getItem(i);
+    }
+
+    public FragmentPagerAdapter getPageAdapter() {
+        return adapterViewPager;
+    }
+
+    public void updateDetails(PlaceData p) {
+        TextView h = (TextView)findViewById(R.id.tvLabel);
+        h.setText(p.getName());
+    }
+    /*
     public void showPlaceDetails(Place place) {
         placeDetails.setText(formatPlaceDetails(getResources(), place.getName(), place.getAddress()));
     }
 
     private static Spanned formatPlaceDetails(Resources res, CharSequence name, CharSequence address) {
         return Html.fromHtml(res.getString(R.string.place_details, name, address));
-    }
+    }*/
+
 
 }

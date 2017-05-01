@@ -4,9 +4,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.michellegu.avoid.model.PlaceData;
+import com.example.michellegu.avoid.presenter.SearchPresenter;
 import com.example.michellegu.avoid.view.fragment.ChartFragment;
 import com.example.michellegu.avoid.view.fragment.DetailsFragment;
 import com.example.michellegu.avoid.view.fragment.PostsFragment;
+import com.google.android.gms.location.places.Place;
 
 /**
  * Created by michellegu on 4/24/17.
@@ -14,9 +17,15 @@ import com.example.michellegu.avoid.view.fragment.PostsFragment;
 
 public class SearchPagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
-
-    public SearchPagerAdapter(FragmentManager fragmentManager) {
+    private SearchPresenter searchPresenter;
+    private PlaceData place;
+    public SearchPagerAdapter(FragmentManager fragmentManager, SearchPresenter searchPresenter) {
         super(fragmentManager);
+        this.searchPresenter = searchPresenter;
+    }
+
+    public void update() {
+        notifyDataSetChanged();
     }
 
     // Returns total number of pages
@@ -30,7 +39,7 @@ public class SearchPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return DetailsFragment.newInstance();
+                return DetailsFragment.newInstance(searchPresenter.getCurrentPlace());
             case 1:
                 return ChartFragment.newInstance();
             case 2:
@@ -38,6 +47,16 @@ public class SearchPagerAdapter extends FragmentPagerAdapter {
             default:
                 return null;
         }
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+    // POSITION_NONE makes it possible to reload the PagerAdapter
+        System.out.print("im inside lik");
+        if (object instanceof DetailsFragment) {
+            ((DetailsFragment) object).updatePlace(searchPresenter.getCurrentPlace());
+        }
+        return super.getItemPosition(object);
     }
 
     // Returns the page title for the top indicator

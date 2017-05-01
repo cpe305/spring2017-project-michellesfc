@@ -6,6 +6,7 @@
     android:background="@android:color/white"
     android:elevation="4dp"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"></android.support.v7.widget.Toolbar>
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:title="AVOID"></android.support.v7.widget.Toolbar>
 
 

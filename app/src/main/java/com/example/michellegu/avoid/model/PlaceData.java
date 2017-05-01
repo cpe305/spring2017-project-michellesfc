@@ -3,10 +3,15 @@ package com.example.michellegu.avoid.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by michellegu on 4/23/17.
@@ -15,15 +20,23 @@ import java.util.Objects;
  * because Google Places API returns a Place object. This would have led to some confusion.
  */
 
-public class PlaceData {
+public class PlaceData implements Parcelable{
 
     private String placeID;
     private String name;
     private String address;
     private int currentRating;
     private ArrayList<Post> posts;
+    private WeekRating overallRating;
 
     public PlaceData() {}
+
+    private PlaceData(Parcel in) {
+        placeID = in.readString();
+        name = in.readString();
+        address = in.readString();
+        currentRating = in.readInt();
+    }
 
     public PlaceData(String placeID, String name, String address, int currentRating) {
         this.placeID = placeID;
@@ -71,5 +84,40 @@ public class PlaceData {
     public void removePost(Post p) {
         posts.remove(p);
     }
+
+    public WeekRating getOverallRating() {
+        return overallRating;
+    }
+
+    public void setOverallRating(WeekRating overallRating) {
+        this.overallRating = overallRating;
+    }
+
+    public int describeContents() {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeString(placeID);
+        out.writeString(name);
+        out.writeString(address);
+        out.writeInt(currentRating);
+
+        //out.writeTypedObject(overallRating);
+        //private ArrayList<Post> posts;
+        //private WeekRating overallRating;
+    }
+
+    public static final Parcelable.Creator<PlaceData> CREATOR
+            = new Parcelable.Creator<PlaceData>() {
+        public PlaceData createFromParcel(Parcel in) {
+            return new PlaceData(in);
+        }
+
+        public PlaceData[] newArray(int size) {
+            return new PlaceData[size];
+        }
+    };
+
 
 }
