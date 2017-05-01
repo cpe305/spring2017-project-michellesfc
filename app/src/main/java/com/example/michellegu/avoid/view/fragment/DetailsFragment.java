@@ -25,14 +25,16 @@ public class DetailsFragment extends Fragment {
     private String title = "Details";
     private int page = 1;
     private PlaceData place;
+
     @BindView(R.id.detailsText) TextView detailsText;
-    @BindView(R.id.tvLabel) TextView tvLabel;
 
     // newInstance constructor for creating fragment with arguments
     public static DetailsFragment newInstance(PlaceData place) {
         Bundle bundle = new Bundle();
         bundle.putParcelable("currentPlace", place);
+
         DetailsFragment fragmentFirst = new DetailsFragment();
+
         fragmentFirst.setArguments(bundle);
         return fragmentFirst;
     }
@@ -40,7 +42,7 @@ public class DetailsFragment extends Fragment {
     public void updatePlace(PlaceData place) {
         if(place != null) {
             this.place = place;
-            tvLabel.setText(place.getName() + " " + place.getAddress());
+            detailsText.setText(place.getName() + " " + place.getAddress());
         }
     }
 
@@ -53,14 +55,12 @@ public class DetailsFragment extends Fragment {
 
     // Inflate the view for the fragment based on layout XML
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_details, container, false);
         ButterKnife.bind(this, view);
 
         if(place != null) {
-            tvLabel.setText(place.getName() + " " + place.getAddress());
+            detailsText.setText(place.getName() + " " + place.getAddress());
         }
         return view;
     }

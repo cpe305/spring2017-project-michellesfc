@@ -78,9 +78,7 @@ public class PlacesServiceTask extends AsyncTask<String, Void, String> {
         if(response == null) {
             response = "THERE WAS AN ERROR";
         }
-        // TODO: check this.exception
-        // TODO: do something with the feed
-        //System.out.println(response);
+
         try {
             JSONObject object = new JSONObject(response);
             JSONObject results = object.getJSONObject("result");
@@ -88,7 +86,7 @@ public class PlacesServiceTask extends AsyncTask<String, Void, String> {
             String address = results.getString("formatted_address");
             String name = results.getString("name");
 
-
+            //TODO: store opening hours
             //JSONArray openingHours = results.getJSONObject("opening_hours").getJSONArray("periods");
             //System.out.println(openingHours);
 

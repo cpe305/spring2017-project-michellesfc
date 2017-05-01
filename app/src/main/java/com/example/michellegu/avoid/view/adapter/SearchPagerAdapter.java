@@ -18,7 +18,7 @@ import com.google.android.gms.location.places.Place;
 public class SearchPagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
     private SearchPresenter searchPresenter;
-    private PlaceData place;
+
     public SearchPagerAdapter(FragmentManager fragmentManager, SearchPresenter searchPresenter) {
         super(fragmentManager);
         this.searchPresenter = searchPresenter;
@@ -51,10 +51,9 @@ public class SearchPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getItemPosition(Object object) {
-    // POSITION_NONE makes it possible to reload the PagerAdapter
-        System.out.print("im inside lik");
         if (object instanceof DetailsFragment) {
             ((DetailsFragment) object).updatePlace(searchPresenter.getCurrentPlace());
+            System.out.println("wow updating place:   " + searchPresenter.getCurrentPlace().getAddress() + "   " + searchPresenter.getCurrentPlace());
         }
         return super.getItemPosition(object);
     }
