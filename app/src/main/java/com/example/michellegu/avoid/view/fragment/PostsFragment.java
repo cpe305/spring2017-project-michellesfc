@@ -15,8 +15,6 @@ import com.example.michellegu.avoid.R;
 
 public class PostsFragment extends Fragment {
     // Store instance variables
-    private String title = "Post";
-    private int page = 3;
 
     // newInstance constructor for creating fragment with arguments
     public static PostsFragment newInstance() {
@@ -38,7 +36,7 @@ public class PostsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_posts, container, false);
         TextView postLabel = (TextView) view.findViewById(R.id.postLabel);
-        postLabel.setText(page + " -- " + title);
+        postLabel.setText(3 + " -- " + "Post");
 
         return view;
     }

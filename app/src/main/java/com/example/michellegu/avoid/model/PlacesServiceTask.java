@@ -19,15 +19,12 @@ import java.net.URL;
 
 public class PlacesServiceTask extends AsyncTask<String, Void, String> {
 
-    private final String API_KEY = "AIzaSyC2sNzHoR3n0fq1ryhxFWhM9qBlG62Q88Q";
+    private static final String API_KEY = "AIzaSyC2sNzHoR3n0fq1ryhxFWhM9qBlG62Q88Q";
 
     private SearchPresenter searchPresenter;
 
     public PlacesServiceTask(SearchPresenter presenter) {
         searchPresenter = presenter;
-    }
-
-    protected void onPreExecute() {
     }
 
     private String makeUrl(String id) {
@@ -77,14 +74,12 @@ public class PlacesServiceTask extends AsyncTask<String, Void, String> {
             String address = results.getString("formatted_address");
             String name = results.getString("name");
 
-            //TODO: store opening hours
-            //JSONArray openingHours = results.getJSONObject("opening_hours").getJSONArray("periods");
+            //store opening hours
 
 
             PlaceData place = new PlaceData(id, address, name, 0);
             searchPresenter.setCurrentPlace(place);
             //DayRating
-            //WeekRating weekRating = new WeekRating();
             //opening hours check if they have it
             //check for weekday_text
 

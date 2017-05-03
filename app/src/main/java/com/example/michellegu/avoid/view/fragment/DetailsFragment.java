@@ -2,7 +2,6 @@ package com.example.michellegu.avoid.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +9,6 @@ import android.widget.TextView;
 
 import com.example.michellegu.avoid.R;
 import com.example.michellegu.avoid.model.PlaceData;
-import com.example.michellegu.avoid.presenter.SearchPresenter;
-import com.example.michellegu.avoid.view.activity.SearchActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,8 +19,6 @@ import butterknife.ButterKnife;
 
 public class DetailsFragment extends Fragment {
     // Store instance variables
-    private String title = "Details";
-    private int page = 1;
     private PlaceData place;
 
     @BindView(R.id.detailsText) TextView detailsText;

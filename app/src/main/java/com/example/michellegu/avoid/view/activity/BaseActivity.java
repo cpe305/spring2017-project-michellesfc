@@ -19,7 +19,6 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_search);
     }
 
     public void initToolbar(int toolbarID) {
@@ -51,7 +50,6 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
                 startActivity(comparisonActivity);
                 return true;
             default:
-                System.out.println("unable to determine user's action");
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);

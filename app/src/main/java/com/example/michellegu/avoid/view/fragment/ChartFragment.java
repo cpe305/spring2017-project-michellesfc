@@ -14,9 +14,6 @@ import com.example.michellegu.avoid.R;
  */
 
 public class ChartFragment extends Fragment {
-    // Store instance variables
-    private String title = "Chart";
-    private int page = 2;
 
     // newInstance constructor for creating fragment with arguments
     public static ChartFragment newInstance() {
@@ -38,7 +35,7 @@ public class ChartFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chart, container, false);
         TextView chartLabel = (TextView) view.findViewById(R.id.chartLabel);
-        chartLabel.setText(page + " -- " + title);
+        chartLabel.setText(2 + " -- " + "Chart");
 
         return view;
     }

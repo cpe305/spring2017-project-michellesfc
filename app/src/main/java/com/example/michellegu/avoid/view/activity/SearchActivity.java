@@ -25,11 +25,9 @@ public class SearchActivity extends BaseActivity implements ISearchView {
 
     //view components
     @BindView(R.id.viewpager) ViewPager viewPager;
-    //@BindView(R.id.placeTextView) TextView placeDetails;
     @BindView(R.id.tabLayout) TabLayout tabLayout;
 
     //for google places
-    int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,29 +53,26 @@ public class SearchActivity extends BaseActivity implements ISearchView {
         try {
             Intent pickerIntent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
                     .build(this);
-            startActivityForResult(pickerIntent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
+            startActivityForResult(pickerIntent, 1);
         } catch (GooglePlayServicesRepairableException e) {
-            // TODO: Handle the error.
+            
         } catch (GooglePlayServicesNotAvailableException e) {
-            // TODO: Handle the error.
+
         }
     }
 
     //handles the action of selecting a place from the place picker
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
+        if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(this, data);
                 searchPresenter.createPlaceData(place.getId());
             }
             else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
-                Status status = PlaceAutocomplete.getStatus(this, data);
-                // TODO: Handle the error.
-
+                // there was an error
             } else if (resultCode == RESULT_CANCELED) {
                 // The user canceled the operation.
-                // TODO: Handle the cancellation.
             }
 
         }

@@ -52,7 +52,6 @@ public class SearchPagerAdapter extends FragmentPagerAdapter {
     public int getItemPosition(Object object) {
         if (object instanceof DetailsFragment) {
             ((DetailsFragment) object).updatePlace(place);
-            System.out.println("wow updating place:   " + place.getAddress() + "   " + place.getName());
         }
         return super.getItemPosition(object);
     }
