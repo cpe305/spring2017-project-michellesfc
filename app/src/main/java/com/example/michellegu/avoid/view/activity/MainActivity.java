@@ -3,7 +3,6 @@ package com.example.michellegu.avoid.view.activity;
 import android.os.Bundle;
 
 import com.example.michellegu.avoid.R;
-import com.example.michellegu.avoid.model.PlacesServiceTask;
 import com.example.michellegu.avoid.view.IMainView;
 
 /**

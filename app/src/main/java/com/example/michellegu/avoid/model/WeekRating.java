@@ -2,7 +2,6 @@ package com.example.michellegu.avoid.model;
 import com.example.michellegu.avoid.model.EnumTypes.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by michellegu on 4/28/17.

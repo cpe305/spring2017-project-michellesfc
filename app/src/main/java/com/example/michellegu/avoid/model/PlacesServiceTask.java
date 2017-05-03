@@ -4,21 +4,14 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.michellegu.avoid.presenter.SearchPresenter;
-import com.google.android.gms.location.places.Place;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by michellegu on 4/30/17.
@@ -26,9 +19,7 @@ import java.util.logging.Logger;
 
 public class PlacesServiceTask extends AsyncTask<String, Void, String> {
 
-    private String API_KEY = "AIzaSyC2sNzHoR3n0fq1ryhxFWhM9qBlG62Q88Q";
-
-    private Exception exception;
+    private final String API_KEY = "AIzaSyC2sNzHoR3n0fq1ryhxFWhM9qBlG62Q88Q";
 
     private SearchPresenter searchPresenter;
 

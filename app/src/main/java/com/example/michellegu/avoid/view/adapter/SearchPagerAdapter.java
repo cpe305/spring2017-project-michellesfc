@@ -9,7 +9,6 @@ import com.example.michellegu.avoid.presenter.SearchPresenter;
 import com.example.michellegu.avoid.view.fragment.ChartFragment;
 import com.example.michellegu.avoid.view.fragment.DetailsFragment;
 import com.example.michellegu.avoid.view.fragment.PostsFragment;
-import com.google.android.gms.location.places.Place;
 
 /**
  * Created by michellegu on 4/24/17.
@@ -17,14 +16,14 @@ import com.google.android.gms.location.places.Place;
 
 public class SearchPagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
-    private SearchPresenter searchPresenter;
+    private PlaceData place = null;
 
     public SearchPagerAdapter(FragmentManager fragmentManager, SearchPresenter searchPresenter) {
         super(fragmentManager);
-        this.searchPresenter = searchPresenter;
     }
 
-    public void update() {
+    public void update(PlaceData place) {
+        this.place = place;
         notifyDataSetChanged();
     }
 
@@ -39,7 +38,7 @@ public class SearchPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return DetailsFragment.newInstance(searchPresenter.getCurrentPlace());
+                return DetailsFragment.newInstance(place);
             case 1:
                 return ChartFragment.newInstance();
             case 2:
@@ -52,8 +51,8 @@ public class SearchPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getItemPosition(Object object) {
         if (object instanceof DetailsFragment) {
-            ((DetailsFragment) object).updatePlace(searchPresenter.getCurrentPlace());
-            System.out.println("wow updating place:   " + searchPresenter.getCurrentPlace().getAddress() + "   " + searchPresenter.getCurrentPlace());
+            ((DetailsFragment) object).updatePlace(place);
+            System.out.println("wow updating place:   " + place.getAddress() + "   " + place.getName());
         }
         return super.getItemPosition(object);
     }

@@ -1,6 +1,5 @@
 package com.example.michellegu.avoid.view.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.michellegu.avoid.R;

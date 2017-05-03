@@ -102,10 +102,6 @@ public class PlaceData implements Parcelable{
         out.writeString(name);
         out.writeString(address);
         out.writeInt(currentRating);
-
-        //out.writeTypedObject(overallRating);
-        //private ArrayList<Post> posts;
-        //private WeekRating overallRating;
     }
 
     public static final Parcelable.Creator<PlaceData> CREATOR

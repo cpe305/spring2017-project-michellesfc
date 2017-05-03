@@ -3,7 +3,6 @@ package com.example.michellegu.avoid.presenter;
 import com.example.michellegu.avoid.model.PlaceData;
 import com.example.michellegu.avoid.model.PlacesServiceTask;
 import com.example.michellegu.avoid.view.ISearchView;
-import com.example.michellegu.avoid.view.activity.SearchActivity;
 import com.example.michellegu.avoid.view.adapter.SearchPagerAdapter;
 
 /**
@@ -27,7 +26,7 @@ public class SearchPresenter {
 
     public void setCurrentPlace(PlaceData place) {
         currentPlace = place;
-        ((SearchPagerAdapter)searchView.getPagerAdapter()).update();
+        ((SearchPagerAdapter)searchView.getPagerAdapter()).update(place);
     }
 
     public PlaceData getCurrentPlace() {
