@@ -18,6 +18,10 @@ env:
  - ANDROID_BUILD_TOOLS=25.0.2
  - ADB_INSTALL_TIMEOUT=5 # minutes
 
+ addons:
+   sonarqube:
+     organization: "305"
+
 android:
   components:
     - platform-tools
@@ -39,10 +43,7 @@ before_install:
   - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 
-addons:
-  sonarqube:
-    organization: "305"
+script: ./gradlew clean build
+
 script:
  - sonar-scanner
-
-script: ./gradlew clean build
