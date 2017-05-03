@@ -79,7 +79,7 @@ public class PlacesServiceTask extends AsyncTask<String, Void, String> {
 
             //TODO: store opening hours
             //JSONArray openingHours = results.getJSONObject("opening_hours").getJSONArray("periods");
-            //System.out.println(openingHours);
+
 
             PlaceData place = new PlaceData(id, address, name, 0);
             searchPresenter.setCurrentPlace(place);

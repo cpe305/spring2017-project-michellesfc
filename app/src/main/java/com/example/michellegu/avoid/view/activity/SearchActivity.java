@@ -70,7 +70,6 @@ public class SearchActivity extends BaseActivity implements ISearchView {
             if (resultCode == RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(this, data);
                 searchPresenter.createPlaceData(place.getId());
-                System.out.println("place id:  " + place.getId());
             }
             else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
