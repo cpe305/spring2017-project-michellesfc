@@ -40,8 +40,8 @@ public class DayRating {
         return hourRatings[hour];
     }
 
-    public int setHourRating(int hour, int rating) {
-        return hourRatings[hour] = rating;
+    public void setHourRating(int hour, int rating) {
+        hourRatings[hour] = rating;
     }
 
     public Day getDay() {

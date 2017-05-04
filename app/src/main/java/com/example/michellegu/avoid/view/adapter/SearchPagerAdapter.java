@@ -15,7 +15,7 @@ import com.example.michellegu.avoid.view.fragment.PostsFragment;
  */
 
 public class SearchPagerAdapter extends FragmentPagerAdapter {
-    private static int NUM_ITEMS = 3;
+    private static final int NUM_ITEMS = 3;
     private PlaceData place = null;
 
     public SearchPagerAdapter(FragmentManager fragmentManager, SearchPresenter searchPresenter) {

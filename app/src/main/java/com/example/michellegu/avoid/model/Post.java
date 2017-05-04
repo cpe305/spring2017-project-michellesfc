@@ -13,10 +13,6 @@ public class Post {
     private int votes;
     private String timeStamp;
 
-    public Post() {
-
-    }
-
     public Post(User author, String message, int rating) {
         this.author = author;
         this.message = message;

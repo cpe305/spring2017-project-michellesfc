@@ -63,9 +63,6 @@ public class PlacesServiceTask extends AsyncTask<String, Void, String> {
     }
 
     protected void onPostExecute(String response) {
-        if(response == null) {
-            response = "THERE WAS AN ERROR";
-        }
 
         try {
             JSONObject object = new JSONObject(response);
@@ -76,7 +73,6 @@ public class PlacesServiceTask extends AsyncTask<String, Void, String> {
 
             //store opening hours
 
-
             PlaceData place = new PlaceData(id, address, name, 0);
             searchPresenter.setCurrentPlace(place);
             //DayRating
@@ -84,7 +80,7 @@ public class PlacesServiceTask extends AsyncTask<String, Void, String> {
             //check for weekday_text
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e("ERROR", e.getMessage(), e);
         }
     }
 }

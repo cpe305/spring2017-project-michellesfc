@@ -5,14 +5,12 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.example.michellegu.avoid.R;
 import com.example.michellegu.avoid.view.adapter.SearchPagerAdapter;
 import com.example.michellegu.avoid.presenter.SearchPresenter;
 import com.example.michellegu.avoid.view.ISearchView;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 
@@ -54,10 +52,8 @@ public class SearchActivity extends BaseActivity implements ISearchView {
             Intent pickerIntent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
                     .build(this);
             startActivityForResult(pickerIntent, 1);
-        } catch (GooglePlayServicesRepairableException e) {
-            
-        } catch (GooglePlayServicesNotAvailableException e) {
-
+        } catch (Exception e) {
+            Log.e("ERROR", e.getMessage(), e);
         }
     }
 

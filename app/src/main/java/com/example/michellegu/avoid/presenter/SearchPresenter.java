@@ -13,9 +13,6 @@ public class SearchPresenter {
     private ISearchView searchView;
     private PlaceData currentPlace;
 
-    public SearchPresenter() {
-    }
-
     public void attachView(ISearchView view) {
         searchView = view;
     }

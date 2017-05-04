@@ -1,6 +1,6 @@
 package com.example.michellegu.avoid.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by michellegu on 4/28/17.
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class User {
 
     private String name;
-    private ArrayList<PlaceData> favoritePlaces;
+    private List<PlaceData> favoritePlaces;
 
     public String getName() {
         return name;
@@ -19,11 +19,11 @@ public class User {
         this.name = name;
     }
 
-    public ArrayList<PlaceData> getFavoritePlaces() {
+    public List<PlaceData> getFavoritePlaces() {
         return favoritePlaces;
     }
 
-    public void setFavoritePlaces(ArrayList<PlaceData> favoritePlaces) {
+    public void setFavoritePlaces(List<PlaceData> favoritePlaces) {
         this.favoritePlaces = favoritePlaces;
     }
 
