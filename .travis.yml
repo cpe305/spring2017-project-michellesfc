@@ -54,4 +54,4 @@ before_script:
 #- sonar-scanner
 
 script:
- ./gradlew clean assembleDebug jacocoTestDebugUnitTestReport sonarqube
+ ./gradlew clean jacocoTestDebugUnitTestReport sonarqube
