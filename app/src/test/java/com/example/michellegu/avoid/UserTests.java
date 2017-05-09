@@ -25,7 +25,7 @@ public class UserTests {
 
     @Test
     public void testUserGetFavoritePlaces() {
-        List<PlaceData> favoritePlaces = new ArrayList<PlaceData>;
+        List<PlaceData> favoritePlaces = new ArrayList<PlaceData>();
         PlaceData placeData = new PlaceData("203", "Lecture Room 203", "Cal Poly, SLO", 10);
         favoritePlaces.add(placeData);
         user.setFavoritePlaces(favoritePlaces);
