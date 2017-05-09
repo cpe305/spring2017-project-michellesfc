@@ -33,9 +33,9 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 
-#addons:
-#  sonarqube:
-#    organization: "305"
+addons:
+  sonarqube:
+    organization: "305"
 
 before_install:
   - chmod +x gradlew
